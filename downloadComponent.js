@@ -6,10 +6,10 @@ const fs = require("fs");
 const path = require("path")
 
 const downloadFile = (url, callback) => {
-  const nomeDoArquivo = path.basename(url)
+  const fileName = path.basename(url)
 
   const req = https.get(url, (res) => {
-    const fileStream = fs.createWriteStream(nomeDoArquivo);
+    const fileStream = fs.createWriteStream(fileName);
     res.pipe(fileStream);
 
     fileStream.on("error", (err) => {
